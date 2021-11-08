@@ -1,4 +1,3 @@
-const { response } = require('express')
 const Libro = require('../models/libro')
 
 const guardar = (request, response) => {
@@ -24,7 +23,7 @@ const guardar = (request, response) => {
 const listar = (request, response) => {
     Libro.find({}, (err, libro) => {
         if (err) return response.status(500).send({mensaje: `Error al intentar guardar registro -> ${err}`})
-        response.status(200).send({libro})
+        response.status(200).send({libros: libro})
     })
 }
 
